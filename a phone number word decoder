@@ -1,0 +1,57 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+  public static void main(String[] args) {
+    String phoneNumber = "1-800-FLOWERS";
+
+    // Create a map to store the letter-to-number mappings
+    Map<Character, Integer> letterToNumberMap = new HashMap<>();
+    letterToNumberMap.put('A', 2);
+    letterToNumberMap.put('B', 2);
+    letterToNumberMap.put('C', 2);
+    letterToNumberMap.put('D', 3);
+    letterToNumberMap.put('E', 3);
+    letterToNumberMap.put('F', 3);
+    letterToNumberMap.put('G', 4);
+    letterToNumberMap.put('H', 4);
+    letterToNumberMap.put('I', 4);
+    letterToNumberMap.put('J', 5);
+    letterToNumberMap.put('K', 5);
+    letterToNumberMap.put('L', 5);
+    letterToNumberMap.put('M', 6);
+    letterToNumberMap.put('N', 6);
+    letterToNumberMap.put('O', 6);
+    letterToNumberMap.put('P', 7);
+    letterToNumberMap.put('Q', 7);
+    letterToNumberMap.put('R', 7);
+    letterToNumberMap.put('S', 7);
+    letterToNumberMap.put('T', 8);
+    letterToNumberMap.put('U', 8);
+    letterToNumberMap.put('V', 8);
+    letterToNumberMap.put('W', 9);
+    letterToNumberMap.put('X', 9);
+    letterToNumberMap.put('Y', 9);
+    letterToNumberMap.put('Z', 9);
+
+    // Create a new string builder to store the decoded phone number
+    StringBuilder decodedPhoneNumber = new StringBuilder();
+
+    // Loop through the phone number and decode each character
+    for (int i = 0; i < phoneNumber.length(); i++) {
+      char c = phoneNumber.charAt(i);
+
+      // If the character is a letter, decode it using the map
+      if (Character.isLetter(c)) {
+        decodedPhoneNumber.append(letterToNumberMap.get(Character.toUpperCase(c)));
+      }
+      // If the character is a digit or a symbol, add it to the decoded phone number as-is
+      else {
+        decodedPhoneNumber.append(c);
+      }
+    }
+
+    System.out.println("Original phone number: " + phoneNumber);
+    System.out.println("Decoded phone number: " + decodedPhoneNumber);
+  }
+}
